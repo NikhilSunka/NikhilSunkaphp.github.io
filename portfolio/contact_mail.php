@@ -1,0 +1,24 @@
+<?php
+
+
+$ToEmail = "nikhilsunka@icloud.com";//put your email id
+$Subject = $_POST["Subject"];
+$Message = $_POST["message"];
+$Name = $_POST["name"];
+$FromMail = $_POST["email"];
+
+
+$Body = "You have a message from: ";
+$Body .= $Name;
+$Body .= "\n";
+$Body .= "\n";
+$Body .= $Message;
+
+$MailHeaders = "From: " . $Name . "<". $FromMail .">\r\n";
+
+if(mail($ToEmail,$Subject,$Body,$MailHeaders)){
+print "ok";
+} else {
+print "<p class='Error'>Unable to send email. Please try again.</p>";
+}
+?>
